@@ -5,12 +5,33 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-
+    overflow: hidden; 
     font-family: Arial;
-    
+    position: relative;    
+};
+
+@media only screen and (max-width: 768px) {
+body{
+  width: 100%;
 }
 
+.p-0{
+  width: 50px !important;
+  height: 50px !important;
   
+}
+}
+
+
+
+
+
+
+
+
+
+
+
 .home-cotainer{
  margin-top: 150px;
 }
@@ -93,7 +114,7 @@ b{
 .service-item {
   display: flex;
   flex-direction: column;
-  min-height: 400px; /* Vous pouvez ajuster cette valeur selon vos besoins */
+  min-height: 100px; /* Vous pouvez ajuster cette valeur selon vos besoins */
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1); /* Ajoute un effet visuel harmonieux */
 }
 
@@ -108,4 +129,34 @@ b{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.bg-ligh{
+  background-color: #fcead3;
+}
+
+.img-fluid{
+  height: 100vh;
+  object-fit: cover
+}
+
+.text-primar {
+  color: #00BFFF;
+
+}
+
+.mb-4{
+  text-align: justify;
+}
+
+.text{
+  font-size: 20px;
+  color: #4400ff;
+  font-weight: bold;
+}
+
+.text:hover{
+ 
+  color: #FF8C00;
+ 
 }
