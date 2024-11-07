@@ -1,14 +1,4 @@
-.home {
-    background: linear-gradient(0deg, rgba(5, 5, 219, 0.788), rgba(109, 106, 188, 0.4)), url('/public/img/accueil.jpeg') no-repeat center center ;
-    height: 100vh;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    overflow: hidden; 
-    font-family: Arial;
-    position: relative;    
-};
+
 
 @media only screen and (max-width: 768px) {
 body{
@@ -24,17 +14,121 @@ body{
 
 
 
-
-
-
-
-
-
-
-
-.home-cotainer{
- margin-top: 150px;
+/*** service Start ***/
+.service .service-item {
+  position: relative;
+  overflow: hidden;
 }
+
+.service .service-item .service-inner .service-title {
+  position: relative;
+  margin-top: -30px;
+  text-align: center;
+  transition: 0.5s;
+}
+
+.service .service-item .service-inner .service-title .service-content {
+  position: absolute;
+  bottom: -100%; 
+  left: 0;
+  margin-left: 30px;
+  margin-right: 30px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #00008B;
+  opacity: 0;
+  transition: 0.5s;
+  color: #fff;
+}
+
+.service .service-item:hover .service-inner .service-title .service-content {
+  bottom: 0;
+  opacity: 1;
+}
+
+.service .service-item .service-inner .service-title .service-content a h4 {
+  border-bottom: 1px solid rgba(256, 256, 256, .1);
+}
+
+.service .service-item .service-inner .service-title .service-title-name {
+  transition: 0.5s;
+}
+
+.service .service-item:hover .service-inner .service-title .service-title-name {
+  opacity: 0;
+}
+
+.service .service-item .service-inner .service-img {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.service .service-item .service-inner .service-img::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, .5);
+  transition: 0.5s;
+  opacity: 0;
+}
+
+.service .service-item:hover .service-inner .service-img::after {
+  height: 100%;
+  opacity: 1;
+}
+
+.service .service-item .service-inner .service-img img {
+  transition: 0.5s;
+}
+
+.service .service-item:hover .service-inner .service-img img {
+  transform: scale(1.3);
+}
+/*** Service End ***/
+
+.card {
+  position: relative;
+  width: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.card-image {
+  width: 100%;
+  display: block;
+}
+
+.card-text {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #00008B;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.card-text:hover {
+  background-color: #fff;
+  color: #00008B;
+}
+
   .wrapper h1 {
     top: 50%;
     left: 50%;
@@ -62,7 +156,7 @@ body{
   
   .wrapper div i {
     font-size: 30px;
-    color: #00BFFF; /* Couleur blanche pour ressembler à l'eau */
+    color: #00008B; /* Couleur blanche pour ressembler à l'eau */
   }
   
   /* Disposition aléatoire des icônes */
@@ -92,23 +186,33 @@ body{
   }
   
 .text-orange{
-  color: #FF8C00;
+  color:  #00008B;
+  width: 100% !important;
+  font-size: 40px;
 }
 
 .text-bleu{
-  color: #feffff;
+  color: #FF8C00;
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 30px;
 }
 
 .btn-primary{
   background-color: #FF8C00;
 }
 
+.h4{
+  font-size: 15px;
+
+}
+
 b{
-  color: #00BFFF;
+  color: #00008B;
 }
 
 .text-color{
-  color: #00BFFF;
+  color: #00008B;
 }
 
 .service-item {
@@ -132,7 +236,7 @@ b{
 }
 
 .bg-ligh{
-  background-color: #fcead3;
+  background-color:  rgba(173, 216, 230, 1);
 }
 
 .img-fluid{
@@ -151,7 +255,7 @@ b{
 
 .text{
   font-size: 20px;
-  color: #4400ff;
+  color: rgba(0, 0, 139, 1);
   font-weight: bold;
 }
 

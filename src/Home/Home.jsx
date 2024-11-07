@@ -4,13 +4,6 @@ import { useAnimationFrame } from "framer-motion"
 
 export default function Home() {
 
-    const ref = useRef(null)
-  
-    useAnimationFrame((t) => {
-        const rotate = Math.sin(t / 5000) * 200;
-        const y = (1 + Math.sin(t / 500)) * -50;
-        ref.current.style.transform = `translateY(${y}px) rotateX(${rotate}deg) rotateY(${rotate}deg)`;
-      });
   return (
     <div>
       
@@ -18,54 +11,166 @@ export default function Home() {
          {/* home start */}
 
              {/* <!-- Navbar & Hero Start --> */}
-        <div className="container-fluid position-relative p-0">
-            <nav className="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-                <a href="" className="navbar-brand p-0">
-                    <img src="/img/logo.png" alt="" srcset=""/>
-                </a>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                    <span className="fa fa-bars"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarCollapse">
-                    <div className="navbar-nav ms-auto py-0">
-                        <a href="#accueil" className="nav-item nav-link active">Accueil</a>
-                        <a href="#propos" className="nav-item nav-link">A Propos</a>
-                        <a href="#service" className="nav-item nav-link">Services</a>
-                        <a href="#formation" className="nav-item nav-link">Formation</a>
-                        <a href="#projet" className="nav-item nav-link">Projets</a>
-                        {/* <a href="contact.html" className="nav-item nav-link"></a> */}
-                    </div>
-                    <a href="#contact" className="btn btn-primary rounded-pill py-2 px-4 my-3 my-lg-0 flex-shrink-0">Contact</a>
-                </div>
-            </nav>
-
-           
-        </div>
+     
         {/* <!-- Navbar & Hero End --> */}
 
-    <div className='home' id='accueil'>
-    <div className="d-flex justify-content-center ">
-    <div className="col-lg-10 col-xl-8">
-        <div className="animated fadeInLeft home-cotainer">
-            <div className="text-center">
-                <h4 className="text-bleu text-uppercase fw-bold mb-4"> CFES</h4>
-                <h1 className="display-4 text-orange text-orange-4">Cabinet de Formation et d’Etudes Statistiques</h1>
-                <p className="mb-5 fs-5 text-bleu">
-                Éclairer l'avenir par la formation et l'expertise statistique.
-                </p>
-                <div className="d-flex justify-content-center mb-4">
-                   
-                    <a className="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2" href="#contact">Contact</a>
-                </div>
-                <div className="d-flex align-items-center justify-content-center">
-                  
-                </div>
-            </div>
-        </div>
+        <div class="hero_area">
+    {/* <!-- header section strats --> */}
+    <div class="hero_bg_box">
+      <img src="./img/accueil.png" alt=""/>
     </div>
-</div>
 
-    <div className="wrapper">
+    <header class="header_section">
+      <div class="header_top">
+        <div class="container-fluid">
+          <div class="contact_link-container">
+            <a href="" class="contact_link1">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <span>
+                Lorem ipsum dolor sit amet,
+              </span>
+            </a>
+            <a href="" class="contact_link2">
+              <i class="fa fa-phone" aria-hidden="true"></i>
+              <span>
+                Call : +01 1234567890
+              </span>
+            </a>
+            <a href="" class="contact_link3">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <span>
+                demo@gmail.com
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="header_bottom">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg custom_nav-container">
+            <a class="navbar-brand" href="index.html">
+              <span>
+              <img src="./img/logo.png" alt="" srcset="" style={{width:'50px', height:'50px'}} />
+              </span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class=""></span>
+            </button>
+
+            <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
+              <ul class="navbar-nav  ">
+                <li class="nav-item active">
+                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="about.html"> About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="service.html"> Services </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="blog.html"> Blog </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="testimonial.html">Testimonial</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+    {/* <!-- end header section --> */}
+    {/* <!-- slider section --> */}
+    <section class=" slider_section ">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-7">
+                  <div class="detail-box">
+                    <h1>
+                    Cabinet de Formation  <br/>
+                      <span>
+                      et d’Etudes Statistiques
+                      </span>
+                    </h1>
+                    <p>
+                    Éclairer l'avenir par la formation et l'expertise statistique.
+                    </p>
+                    <div class="btn-box">
+                      <a href="" class="btn-1"> Contact </a>
+                      <a href="" class="btn-2">Formations</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item ">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-7">
+                  <div class="detail-box">
+                    <h1>
+                    Cabinet de Formation  <br/>
+                      <span>
+                      et d’Etudes Statistiques
+                      </span>
+                    </h1>
+                    <p>
+                    Éclairer l'avenir par la formation et l'expertise statistique.
+                    </p>
+                
+                    <div class="btn-box">
+                      <a href="" class="btn-1"> Contact </a>
+                      <a href="" class="btn-2">Formations</a>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* <div class="carousel-item ">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-7">
+                  <div class="detail-box">
+                    <h1>
+                      Building your visions <br/>
+                      <span>
+                        Creating reality
+                      </span>
+                    </h1>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod magna aliqua. Ut enim ad minim veniam
+                    </p>
+                    <div class="btn-box">
+                      <a href="" class="btn-1"> Read more </a>
+                      <a href="" class="btn-2">Get A Quote</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> */}
+        </div>
+        <div class="container idicator_container">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            {/* <li data-target="#carouselExampleIndicators" data-slide-to="2"></li> */}
+          </ol>
+        </div>
+      </div>
+    </section>
+    {/* <!-- end slider section --> */}
+    </div>
+
+    {/* <div className="wrapper">
    <div><i className="fas fa-microchip"></i></div>
    <div><i className="fas fa-laptop-code"></i></div>
    <div><i className="fas fa-robot"></i></div>
@@ -81,17 +186,15 @@ export default function Home() {
    <div><i className="fas fa-microchip"></i></div>
    <div><i className="fas fa-cloud"></i></div>
    <div><i className="fas fa-laptop-code"></i></div>
-</div>
+    </div> */}
 
 
-          </div>
-
-   {/* home end */}
+ 
 
         {/* <!-- propos Start --> */}
-        <div className="container-fluid about py-5" id='propos'>
+        <div className="container-fluid about py-5" id='propos' style={{marginTop:'-80px'}}>
             <div className="container py-5">
-                <div className="row g-5 align-items-center">
+                <div className="row g-7 align-items-center" >
                     <div className="col-xl-7 wow fadeInLeft" data-wow-delay="0.2s">
                         <div>
                             <h4 className="text-orange">À propos</h4>
@@ -128,71 +231,61 @@ export default function Home() {
                     </div>
                     <div className="col-xl-5 wow fadeInRight" data-wow-delay="0.2s">
                         <div className="rounded position-relative overflow-hidden">
-                            <img src="img/about.png" ref={ref} className="img-fluid rounded w-100" alt=""/>
+                            <img src="img/about.png" className="img-fluid rounded w-100" alt=""/>
                         </div>
                     </div>
                 </div>
             </div>
             {/* <!-- Team Start --> */}
-        <div className="container-fluid team pb-5" id='equipe'>
-            <div className="container pb-5">
-                
-                <div className="row g-4">
-                    <div className="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
-                        <div className="team-item">
-                            <div className="team-img">
-                                <img src="img/team-1.jpg" className="img-fluid" alt=""/>
-                            </div>
-                            <div className="team-title">
-                                <h4 className="mb-0">David James</h4>
-                                <p className="mb-0">Profession</p>
-                            </div>
-                          
-                        </div>
-                    </div>
-                    <div className="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.4s">
-                        <div className="team-item">
-                            <div className="team-img">
-                                <img src="img/team-2.jpg" className="img-fluid" alt=""/>
-                            </div>
-                            <div className="team-title">
-                                <h4 className="mb-0">David James</h4>
-                                <p className="mb-0">Profession</p>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div className="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.6s">
-                        <div className="team-item">
-                            <div className="team-img">
-                                <img src="img/team-3.jpg" className="img-fluid" alt=""/>
-                            </div>
-                            <div className="team-title">
-                                <h4 className="mb-0">David James</h4>
-                                <p className="mb-0">Profession</p>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div className="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.8s">
-                        <div className="team-item">
-                            <div className="team-img">
-                                <img src="img/team-4.jpg" className="img-fluid" alt=""/>
-                            </div>
-                            <div className="team-title">
-                                <h4 className="mb-0">David James</h4>
-                                <p className="mb-0">Profession</p>
-                            </div>
-                           
-                        </div>
-                    </div>
+            <div className="container-fluid team" id="equipe">
+    <div className="container">
+        <div className="row  d-flex justify-content-center" style={{gap:'30px'}}>
+            <div className="col-md-4 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
+                <div className="card">
+                    <img src="img/oscar.jpg" alt="Job Visa" className="card-image" />
+                    <div className="card-text">Oscar Denou</div>
+                </div>
+            </div>
+            <div className="col-md-4 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.4s">
+                <div className="card">
+                    <img src="img/ndiaye.jpg" alt="Job Visa" className="card-image" />
+                    <div className="card-text">Aboubacar N'diaye</div>
+                </div>
+            </div>
+            <div className="col-md-4 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.6s">
+                <div className="card">
+                    <img src="img/younouss.jpg" alt="Job Visa" className="card-image" />
+                    <div className="card-text">Younouss Bore</div>
+                </div>
+            </div>
+            <div className="col-md-4 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.8s">
+                <div className="card">
+                    <img src="img/bane.jpg" alt="Job Visa" className="card-image" />
+                    <div className="card-text">Moussa Bane</div>
+                </div>
+            </div>
+            <div className="col-md-4 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="1s">
+                <div className="card">
+                    <img src="img/zeinab.jpg" alt="Job Visa" className="card-image" />
+                    <div className="card-text">Zeynab Djenepo</div>
+                </div>
+            </div>
+            <div className="col-md-4 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="1.2s">
+                <div className="card">
+                    <img src="img/mina.jpg" alt="Job Visa" className="card-image" />
+                    <div className="card-text">Aminata Kone</div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
         {/* <!-- Team End --> */}
         </div>
 
-        
+   <br />
+   <br />
+   <br />     
 
         {/* <!-- About End --> */}
 
@@ -307,127 +400,162 @@ export default function Home() {
 
 
         {/* <!-- formation Start --> */}
-        <div className="container-fluid offer-section pb-5" id='formation'>
-            <div className="container pb-5">
-                <div className="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style={{ maxWidth: '800px'}}>
-                    {/* <h4 className="text-primar">Our Offer</h4> */}
-                    <h1 className="display-5  text-orange">Formations</h1>
-                    <p className="mb-0">Le cabinet CFES propose des formations en 
-                    </p>
+        <div class="container-fluid service overflow-hidden pt-5" style={{marginTop:'-80px'}}>
+            <div class="container py-5">
+                <div class="section-title text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
+                   
+                    <h1 class="mb-0 text-orange">Formations</h1>
+                    <p class="mb-0">Le cabinet CFES propose des formations en </p>
                 </div>
-                <div className="row g-5 align-items-center">
-                    <div className="col-xl-5 wow fadeInLeft" data-wow-delay="0.2s">
-                        <div className="nav nav-pills bg-ligh rounded p-5">
-                            <a className="accordion-link p-4 active mb-4" data-bs-toggle="pill" href="#collapseOne">
-                                <h5 className="mb-0">Statistique</h5>
-                            </a>
-                            <a className="accordion-link p-4 mb-4" data-bs-toggle="pill" href="#collapseTwo">
-                                <h5 className="mb-0">Logiciels de conception des outils de collecte </h5>
-                            </a>
-                            <a className="accordion-link p-4 mb-4" data-bs-toggle="pill" href="#collapseThree">
-                                <h5 className="mb-0">Logiciels d’analyse statistique </h5>
-                            </a>
-                            <a className="accordion-link p-4 mb-4" data-bs-toggle="pill" href="#collapseFour">
-                                <h5 className="mb-0">visualisation des données </h5>
-                            </a>
-                            <a className="accordion-link p-4 mb-4" data-bs-toggle="pill" href="#collapseFive">
-                                <h5 className="mb-0">Bases de données  </h5>
-                            </a>
-                            <a className="accordion-link p-4 mb-4" data-bs-toggle="pill" href="#collapseSixe">
-                                <h5 className="mb-0">La suite Microsoft  </h5>
-                            </a>
+                <div class="row g-4">
+                    <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="service-item">
+                            <div class="service-inner">
+                                <div class="service-img">
+                                    <img src="img/offer-1.jpg" class="img-fluid w-100 rounded" alt="Image"/>
+                                </div>
+                                <div class="service-title">
+                                    <div class="service-title-name">
+                                        <div class="bg-primary text-center rounded p-3 mx-5 mb-4">
+                                            <a href="#" class="h4 text-white mb-0">Statistique</a>
+                                        </div>
+                                        <a class="btn bg-light text-secondary rounded-pill py-3 px-5 mb-4" href="#">Explore More</a>
+
+                                    </div>
+                                    <div class="service-content pb-4">
+                                        <div class="px-4">
+                                            <p class="mb-4">Cette formation couvre les bases et techniques avancées de la statistique descriptive et multidimensionnelle, ainsi que les méthodes d'échantillonnage et l'économétrie. Elle est idéale pour les personnes souhaitant bénéficier des compétences analytiques solides, indispensables dans de nombreux domaines professionnels.</p>
+                                            {/* <a class="btn btn-primary border-secondary rounded-pill py-3 px-5" href="#">Explore More</a> */}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div className="col-xl-7 wow fadeInRight" data-wow-delay="0.4s">
-                        <div className="tab-content">
-                            <div id="collapseOne" className="tab-pane fade show p-0 active">
-                                <div className="row g-4">
-                                    <div className="col-md-7">
-                                        <img src="img/offer-1.jpg" className="img-fluid w-100 rounded" alt=""/>
-                                    </div>
-                                    <div className="col-md-5">
+                    <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="service-item">
+                            <div class="service-inner">
+                                <div class="service-img">
+                                    <img src="img/offer-2.jpg" class="img-fluid w-100 rounded" alt="Image"/>
+                                </div>
+                                <div class="service-title">
+                                    <div class="service-title-name">
+                                        <div class="bg-primary text-center rounded p-3 mx-5 mb-4">
+                                            <a href="#" class="h4 text-white mb-0">Logiciels de conception des outils de collecte</a>
+                                        </div>
+                                        <a class="btn bg-light text-secondary rounded-pill py-3 px-5 mb-4" href="#">Explore More</a>
 
-                                        <p className="mb-4">
-                                        Cette formation couvre les bases et techniques avancées de la statistique descriptive et multidimensionnelle, ainsi que les méthodes d'échantillonnage et l'économétrie. Elle est idéale pour les personnes souhaitant bénéficier des compétences analytiques solides, indispensables dans de nombreux domaines professionnels.
-                                        </p>
-                                   
+                                    </div>
+                                    <div class="service-content pb-4">
+                                        {/* <a href="#"><h4 class="text-white mb-4 py-3">Business Visa</h4></a> */}
+                                        <div class="px-4">
+                                            <p class="mb-4">Cette formation est centrale sur l'utilisation des outils comme Kobocollect , CSPro , et la programmation avec xlsform . Ces logiciels permettent de concevoir des formulaires numériques pour la collecte de données sur le terrain, une compétence essentielle pour les études de marché et la recherche.</p>
+                                            {/* <a class="btn btn-primary border-secondary rounded-pill text-white py-3 px-5" href="#">Explore More</a> */}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div id="collapseTwo" className="tab-pane fade show p-0">
-                                <div className="row g-4">
-                                    <div className="col-md-7">
-                                        <img src="img/offer-2.jpg" className="img-fluid w-100 rounded" alt=""/>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="service-item">
+                            <div class="service-inner">
+                                <div class="service-img">
+                                    <img src="img/analyse.jpeg" class="img-fluid w-100 rounded" alt="Image"/>
+                                </div>
+                                <div class="service-title">
+                                    <div class="service-title-name">
+                                        <div class="bg-primary text-center rounded p-3 mx-5 mb-4">
+                                            <a href="#" class="h4 text-white mb-0">Logiciels d'analyse statistique</a>
+                                        </div>
+                                        <a class="btn bg-light text-secondary rounded-pill py-3 px-5 mb-4" href="#">Explore More</a>
                                     </div>
-                                    <div className="col-md-5">
-
-                                        <p className="mb-4">
-                                        Cette formation est centrale sur l'utilisation des outils comme Kobocollect , CSPro , et la programmation avec xlsform . Ces logiciels permettent de concevoir des formulaires numériques pour la collecte de données sur le terrain, une compétence essentielle pour les études de marché et la recherche.
-
-                                        </p>
-                                   
+                                    <div class="service-content pb-4">
+                                        {/* <a href="#"><h4 class="text-white mb-4 py-3">Diplometic Visa</h4></a> */}
+                                        <div class="px-4">
+                                            <p class="mb-4">Apprenez à maîtriser des outils comme R , STATA , et SPSS , qui sont parmi les plus utilisés pour l'analyse des données statistiques. Ces compétences sont cruciales pour interpréter des données complexes dans différents contextes (recherche, entreprise, etc.)..</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div id="collapseThree" className="tab-pane fade show p-0">
-                                <div className="row g-4">
-                                    <div className="col-md-7">
-                                        <img src="img/offer-3.jpg" className="img-fluid w-100 rounded" alt=""/>
-                                    </div>
-                                    <div className="col-md-5">
+                        </div>
+                    </div>
 
-                                        <p className="mb-4">
-                                        Apprenez à maîtriser des outils comme R , STATA , et SPSS , qui sont parmi les plus utilisés pour l'analyse des données statistiques. Ces compétences sont cruciales pour interpréter des données complexes dans différents contextes (recherche, entreprise, etc.).
-                                        </p>
-                                   
+                    
+                    <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="service-item">
+                            <div class="service-inner">
+                                <div class="service-img">
+                                    <img src="img/offer-3.jpg" class="img-fluid w-100 rounded" alt="Image"/>
+                                </div>
+                                <div class="service-title">
+                                    <div class="service-title-name">
+                                        <div class="bg-primary text-center rounded p-3 mx-5 mb-4">
+                                            <a href="#" class="h4 text-white mb-0">Visualisation des donnee</a>
+                                        </div>
+                                        <a class="btn bg-light text-secondary rounded-pill py-3 px-5 mb-4" href="#">Explore More</a>
+
+                                    </div>
+                                    <div class="service-content pb-4">
+                                        {/* <a href="#"><h4 class="text-white mb-4 py-3">Students Visa</h4></a> */}
+                                        <div class="px-4">
+                                            <p class="mb-4">La visualisation des données devient de plus en plus importante pour la communication des résultats d'analyse. Dans cette formation, vous apprendrez à utiliser des logiciels comme Tableau et Power BI pour créer des rapports et des tableaux de bord interactifs et compréhensibles.</p>
+                                            {/* <a class="btn btn-primary border-secondary rounded-pill text-white py-3 px-5" href="#">Explore More</a> */}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div id="collapseFour" className="tab-pane fade show p-0">
-                                <div className="row g-4">
-                                    <div className="col-md-7">
-                                        <img src="img/offer-4.jpg" className="img-fluid w-100 rounded" alt=""/>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="service-item">
+                            <div class="service-inner">
+                                <div class="service-img">
+                                    <img src="img/db.jpeg" class="img-fluid w-100 rounded" alt="Image"/>
+                                </div>
+                                <div class="service-title">
+                                    <div class="service-title-name">
+                                        <div class="bg-primary text-center rounded p-3 mx-5 mb-4">
+                                            <a href="#" class="h4 text-white mb-0">Bases de données</a>
+                                        </div>
+                                        <a class="btn bg-light text-secondary rounded-pill py-3 px-5 mb-4" href="#">Explore More</a>
                                     </div>
-                                    <div className="col-md-5">
-
-                                        <p className="mb-4">
-                                        La visualisation des données devient de plus en plus importante pour la communication des résultats d'analyse. Dans cette formation, vous apprendrez à utiliser des logiciels comme Tableau et Power BI pour créer des rapports et des tableaux de bord interactifs et compréhensibles.
-                                        </p>
-                                   
+                                    <div class="service-content pb-4">
+                                        <div class="px-4">
+                                            <p class="mb-4">Une formation essentielle pour ceux qui souhaitent gérer des bases de données de manière efficace. Vous apprendrez à utiliser des outils comme ACCESS , VBA , et à maîtriser des langages de gestion de bases de données comme SQL et MySQL , vous permettant ainsi de créer et gérer des systèmes de stockage de données.</p>
+                                            {/* <a class="btn btn-primary border-secondary rounded-pill text-white py-3 px-5" href="#">Explore More</a> */}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div id="collapseFive" className="tab-pane fade show p-0">
-                                <div className="row g-4">
-                                    <div className="col-md-7">
-                                        <img src="img/db.jpeg" className="img-fluid w-100 rounded" alt=""/>
-                                    </div>
-                                    <div className="col-md-5">
-
-                                        <p className="mb-4">
-                                        Une formation essentielle pour ceux qui souhaitent gérer des bases de données de manière efficace. Vous apprendrez à utiliser des outils comme ACCESS , VBA , et à maîtriser des langages de gestion de bases de données comme SQL et MySQL , vous permettant ainsi de créer et gérer des systèmes de stockage de données.
-                                        </p>
-                                   
-                                    </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="service-item">
+                            <div class="service-inner">
+                                <div class="service-img">
+                                    <img src="img/offer-5.jpeg" class="img-fluid w-100 rounded" alt="Image"/>
                                 </div>
                                 
-                            </div>
-                            <div id="collapseSixe" className="tab-pane fade show p-0">
-                                <div className="row g-4">
-                                    <div className="col-md-7">
-                                        <img src="img/offer-5.jpeg" className="img-fluid w-100 rounded" alt=""/>
+                                <div class="service-title">
+                                    <div class="service-title-name">
+                                        <div class="bg-primary text-center rounded p-3 mx-5 mb-4">
+                                            <a href="#" class="h4 text-white mb-0">La suite Microsoft</a>
+                                        </div>
                                     </div>
-                                    <div className="col-md-5">
+                                    <a class="btn bg-light text-secondary rounded-pill py-3 px-5 mb-4" href="#">Explore More</a>
 
-                                        <p className="mb-4">
-                                        Familiarisez-vous avec les outils de la suite Microsoft Office (Word, Excel, PowerPoint) pour une utilisation efficace dans un contexte professionnel. Ce module vous aidera à améliorer votre productivité et à maîtriser des fonctions avancées, notamment pour les présentations et la gestion de données.
-                                        </p>
-                                   
+                                    <div class="service-content pb-4">
+                                        {/* <a href="#"><h4 class="text-white mb-4 py-3">La suite Microsoft</h4></a> */}
+                                        <div class="px-4">
+                                            <p class="mb-4">Familiarisez-vous avec les outils de la suite Microsoft Office (Word, Excel, PowerPoint) pour une utilisation efficace dans un contexte professionnel. Ce module vous aidera à améliorer votre productivité et à maîtriser des fonctions avancées, notamment pour les présentations et la gestion de données.</p>
+                                            {/* <a class="btn btn-primary border-secondary rounded-pill text-white py-3 px-5" href="#">Explore More</a> */}
+                                        </div>
                                     </div>
                                 </div>
-                                
                             </div>
-                           
                         </div>
                     </div>
                 </div>
@@ -442,7 +570,8 @@ export default function Home() {
         <div className="container-fluid faq-section pb-5" id='projet'>
             <div className="container pb-5 overflow-hidden">
                 <div className="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style={{maxWidth: '800px'}}>
-                    <h1 className="display-5 mb-4 text-orange">Projets</h1>
+                    <h1 className="display-5 mb-0 text-orange">Projets</h1>
+                    <br />
                     <p className="mb-0">REFERENCES PROFESSIONNELLES DU CABINET CFES ET DES EXPERTS
                     </p>
                 </div>
@@ -639,7 +768,7 @@ Sécrétaire -Permanent ONG AMRAD
         <div className="container-fluid contact py-5" id='contact'>
         <div className="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style={{ maxWidth: '800px'}}>
                     {/* <h4 className="text-primar">Our Offer</h4> */}
-                    <h1 className="display-5 mb-4 text-orange">Contact</h1>
+                    <h1 className="display-5 mb-0 text-orange">Contact</h1>
                 </div>
             <div className="container py-5">
                 <div className="row g-5">
@@ -715,18 +844,7 @@ Sécrétaire -Permanent ONG AMRAD
                                                 <label for="phone">Telephone</label>
                                             </div>
                                         </div>
-                                        <div className="col-lg-12 col-xl-6">
-                                            <div className="form-floating">
-                                                <input type="text" className="form-control border-0" id="project" placeholder="Project"/>
-                                                <label for="project"> Project</label>
-                                            </div>
-                                        </div>
-                                        <div className="col-12">
-                                            <div className="form-floating">
-                                                <input type="text" className="form-control border-0" id="subject" placeholder="Subject"/>
-                                                <label for="subject">Sujets</label>
-                                            </div>
-                                        </div>
+                                       
                                         <div className="col-12">
                                             <div className="form-floating">
                                                 <textarea className="form-control border-0" placeholder="Leave a message here" id="message" style={{height: '160px'}}></textarea>
@@ -755,91 +873,17 @@ Sécrétaire -Permanent ONG AMRAD
         {/* <!-- Contact End --> */}
 
         {/* <!-- Footer Start --> */}
-        <div className="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.2s">
-            <div className="container py-5 border-start-0 border-end-0" style={{border: '1px solid', borderColor: 'rgb(255, 255, 255, 0.08)'}}>
-                <div className="row g-5">
-                    <div className="col-md-6 col-lg-6 col-xl-4">
-                        <div className="footer-item">
-                            <a href="#accueil">
-                                 <img src="img/logo.png" alt="Logo"  className="footer-logo"/> 
-                            </a>
-                            {/* <p className="mb-4">Dolor amet sit justo amet elitr clita ipsum elitr est.Lorem ipsum dolor sit amet, consectetur adipiscing...</p> */}
-                            {/* <div className="d-flex">
-                                <a href="#" className="bg-primary d-flex rounded align-items-center py-2 px-3 me-2">
-                                    <i className="fas fa-apple-alt text-white"></i>
-                                    <div className="ms-3">
-                                        <small className="text-white">Download on the</small>
-                                        <h6 className="text-white">App Store</h6>
-                                    </div>
-                                </a>
-                                <a href="#" className="bg-dark d-flex rounded align-items-center py-2 px-3 ms-2">
-                                    <i className="fas fa-play text-primar"></i>
-                                    <div className="ms-3">
-                                        <small className="text-white">Get it on</small>
-                                        <h6 className="text-white">Google Play</h6>
-                                    </div>
-                                </a>
-                            </div> */}
-                        </div>
-                    </div>
-                    <div className="col-md-6 col-lg-6 col-xl-2">
-                        <div className="footer-item">
-                            {/* <h4 className="text-white mb-4">Quick Links</h4>
-                            <a href="#"><i className="fas fa-angle-right me-2"></i> About Us</a>
-                            <a href="#"><i className="fas fa-angle-right me-2"></i> Feature</a>
-                            <a href="#"><i className="fas fa-angle-right me-2"></i> Attractions</a>
-                            <a href="#"><i className="fas fa-angle-right me-2"></i> Tickets</a>
-                            <a href="#"><i className="fas fa-angle-right me-2"></i> Blog</a>
-                            <a href="#"><i className="fas fa-angle-right me-2"></i> Contact us</a> */}
-                        </div>
-                    </div>
-                    <div className="col-md-6 col-lg-6 col-xl-3">
-                        <div className="footer-item">
-                            {/* <h4 className="text-white mb-4">Support</h4>
-                            <a href="#"><i className="fas fa-angle-right me-2"></i> Privacy Policy</a>
-                            <a href="#"><i className="fas fa-angle-right me-2"></i> Terms & Conditions</a>
-                            <a href="#"><i className="fas fa-angle-right me-2"></i> Disclaimer</a>
-                            <a href="#"><i className="fas fa-angle-right me-2"></i> Support</a>
-                            <a href="#"><i className="fas fa-angle-right me-2"></i> FAQ</a>
-                            <a href="#"><i className="fas fa-angle-right me-2"></i> Help</a> */}
-                        </div>
-                    </div>
-                    <div className="col-md-6 col-lg-6 col-xl-3">
-                        <div className="footer-item">
-                            <h4 className="text-white mb-4">Contact Info</h4>
-                            <div className="d-flex align-items-center">
-                                <i className="fas fa-map-marker-alt text-primar me-3"></i>
-                                <p className="text-white mb-0">123 Street New York.USA</p>
-                            </div>
-                            <div className="d-flex align-items-center">
-                                <i className="fas fa-envelope text-primar me-3"></i>
-                                <p className="text-white mb-0">info@example.com</p>
-                            </div>
-                            <div className="d-flex align-items-center">
-                                <i className="fa fa-phone-alt text-primar me-3"></i>
-                                <p className="text-white mb-0">(+012) 3456 7890</p>
-                            </div>
-                            <div className="d-flex align-items-center mb-4">
-                                <i className="fab fa-firefox-browser text-primar me-3"></i>
-                                <p className="text-white mb-0">Yoursite@ex.com</p>
-                            </div>
-                            <div className="d-flex">
-                                {/* <a className="btn btn-primary btn-sm-square rounded-circle me-3" href="#"><i className="fab fa-facebook-f text-white"></i></a>
-                                <a className="btn btn-primary btn-sm-square rounded-circle me-3" href="#"><i className="fab fa-twitter text-white"></i></a>
-                                <a className="btn btn-primary btn-sm-square rounded-circle me-3" href="#"><i className="fab fa-instagram text-white"></i></a>
-                                <a className="btn btn-primary btn-sm-square rounded-circle me-0" href="#"><i className="fab fa-linkedin-in text-white"></i></a> */}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <footer class="container-fluid footer_section">
+    <p>
+      &copy; <span id="currentYear"></span> All Rights Reserved. Design by
+      <a href="https://html.design/"> AIS-Mali</a>
+    </p>
+  </footer>
         {/* <!-- Footer End --> */}
         
         
 
         {/* <!-- Back to Top --> */}
-        <a href="#" className="btn btn-primary btn-lg-square rounded-circle back-to-top"><i className="fa fa-arrow-up"></i></a>   
 
     </div>
   )
