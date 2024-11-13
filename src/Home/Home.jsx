@@ -1,11 +1,46 @@
-import React , {useRef} from 'react'
+import React , {useEffect, useRef, useState} from 'react'
 import './Home.css'
 import { useAnimationFrame } from "framer-motion"
+import emailjs from 'emailjs-com';
 
 export default function Home() {
+    const [showImg, setshowImg] = useState(true)
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        numero: '', // Add numero to formData
+        message: ''
+      });
+      const handleSubmit = (e) => {
+
+        e.preventDefault();
+        // Send email via EmailJS
+        emailjs.sendForm('', '', e.target, '')
+          .then((result) => {
+            console.log(result.text);
+            alert('Message envoyé avec succès !');
+          }, (error) => {
+            console.log(error.text);
+            alert('Échec de l\'envoi du message. Veuillez réessayer.');
+          });
+      };
+  useEffect(()=>{
+   const timer = setTimeout(() =>{
+    setshowImg(false);
+   }, 3000)
+   return () => clearTimeout (timer)
+  }, []);
 
   return (
-    <div>
+    <>
+     {
+        showImg ? (
+            <div  className="loading-container">
+            <img src="./img/loading.svg" alt="" style={{justifyContent: 'center'}} />
+    
+        </div>
+        ):(
+            <div>
       
          
          {/* home start */}
@@ -14,65 +49,68 @@ export default function Home() {
      
         {/* <!-- Navbar & Hero End --> */}
 
-        <div class="hero_area">
+        <div className="hero_area">
     {/* <!-- header section strats --> */}
-    <div class="hero_bg_box">
-      <img src="./img/accueil.png" alt=""/>
+    <div className="hero_bg_box">
+      <img src="./img/accueil.jpg" alt=""/>
     </div>
 
-    <header class="header_section">
-      <div class="header_top">
-        <div class="container-fluid">
-          <div class="contact_link-container">
-            <a href="" class="contact_link1">
-              <i class="fa fa-map-marker" aria-hidden="true"></i>
+    <header className="header_section">
+      <div className="header_top">
+        <div className="container-fluid">
+          <div className="contact_link-container">
+            <a href="" className="contact_link1">
+              <i className="fa fa-map-marker" aria-hidden="true"></i>
               <span>
-                Lorem ipsum dolor sit amet,
+                Bacodjicoroni Golf 
               </span>
             </a>
-            <a href="" class="contact_link2">
-              <i class="fa fa-phone" aria-hidden="true"></i>
+            <a href="" className="contact_link2">
+              <i className="fa fa-phone" aria-hidden="true"></i>
               <span>
-                Call : +01 1234567890
+                Tell : +223 78 84 84 82
               </span>
             </a>
-            <a href="" class="contact_link3">
-              <i class="fa fa-envelope" aria-hidden="true"></i>
+            <a href="" className="contact_link3">
+              <i className="fa fa-envelope" aria-hidden="true"></i>
               <span>
-                demo@gmail.com
+                odenou@cfes-mali.com
               </span>
             </a>
           </div>
         </div>
       </div>
-      <div class="header_bottom">
-        <div class="container-fluid">
-          <nav class="navbar navbar-expand-lg custom_nav-container">
-            <a class="navbar-brand" href="index.html">
+      <div className="header_bottom">
+        <div className="container-fluid">
+          <nav className="navbar navbar-expand-lg custom_nav-container">
+            <a className="navbar-brand" href="index.html">
               <span>
               <img src="./img/logo.png" alt="" srcset="" style={{width:'50px', height:'50px'}} />
               </span>
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class=""></span>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span className=""></span>
             </button>
 
-            <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
-              <ul class="navbar-nav  ">
-                <li class="nav-item active">
-                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            <div className="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
+              <ul className="navbar-nav  ">
+                <li className="nav-item active">
+                  <a className="nav-link" href="#home">Accueil <span className="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="about.html"> About</a>
+                <li className="nav-item">
+                  <a className="nav-link" href="#propos">A propos</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="service.html"> Services </a>
+                <li className="nav-item">
+                  <a className="nav-link" href="#service"> Services </a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="blog.html"> Blog </a>
+                <li className="nav-item">
+                  <a className="nav-link" href="#formation"> Formations </a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="testimonial.html">Testimonial</a>
+                <li className="nav-item">
+                  <a className="nav-link" href="#projet">Projets</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#contact">Contact</a>
                 </li>
               </ul>
             </div>
@@ -82,14 +120,14 @@ export default function Home() {
     </header>
     {/* <!-- end header section --> */}
     {/* <!-- slider section --> */}
-    <section class=" slider_section ">
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-7">
-                  <div class="detail-box">
+    <section className=" slider_section ">
+      <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
+        <div className="carousel-inner">
+          <div className="carousel-item active">
+            <div className="container">
+              <div className="row">
+                <div className="col-md-7">
+                  <div className="detail-box">
                     <h1>
                     Cabinet de Formation  <br/>
                       <span>
@@ -99,20 +137,20 @@ export default function Home() {
                     <p>
                     Éclairer l'avenir par la formation et l'expertise statistique.
                     </p>
-                    <div class="btn-box">
-                      <a href="" class="btn-1"> Contact </a>
-                      <a href="" class="btn-2">Formations</a>
+                    <div className="btn-box">
+                      <a href="" className="btn-1"> Contact </a>
+                      <a href="" className="btn-2">Formations</a>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="carousel-item ">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-7">
-                  <div class="detail-box">
+          {/* <div className="carousel-item ">
+            <div className="container">
+              <div className="row">
+                <div className="col-md-7">
+                  <div className="detail-box">
                     <h1>
                     Cabinet de Formation  <br/>
                       <span>
@@ -123,21 +161,21 @@ export default function Home() {
                     Éclairer l'avenir par la formation et l'expertise statistique.
                     </p>
                 
-                    <div class="btn-box">
-                      <a href="" class="btn-1"> Contact </a>
-                      <a href="" class="btn-2">Formations</a>
+                    <div className="btn-box">
+                      <a href="" className="btn-1"> Contact </a>
+                      <a href="" className="btn-2">Formations</a>
                     </div>
                     
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          {/* <div class="carousel-item ">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-7">
-                  <div class="detail-box">
+          </div> */}
+          {/* <div className="carousel-item ">
+            <div className="container">
+              <div className="row">
+                <div className="col-md-7">
+                  <div className="detail-box">
                     <h1>
                       Building your visions <br/>
                       <span>
@@ -148,9 +186,9 @@ export default function Home() {
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                       sed do eiusmod magna aliqua. Ut enim ad minim veniam
                     </p>
-                    <div class="btn-box">
-                      <a href="" class="btn-1"> Read more </a>
-                      <a href="" class="btn-2">Get A Quote</a>
+                    <div className="btn-box">
+                      <a href="" className="btn-1"> Read more </a>
+                      <a href="" className="btn-2">Get A Quote</a>
                     </div>
                   </div>
                 </div>
@@ -158,13 +196,12 @@ export default function Home() {
             </div>
           </div> */}
         </div>
-        <div class="container idicator_container">
-          <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        {/* <div className="container idicator_container">
+          <ol className="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            {/* <li data-target="#carouselExampleIndicators" data-slide-to="2"></li> */}
           </ol>
-        </div>
+        </div> */}
       </div>
     </section>
     {/* <!-- end slider section --> */}
@@ -192,7 +229,7 @@ export default function Home() {
  
 
         {/* <!-- propos Start --> */}
-        <div className="container-fluid about py-5" id='propos' style={{marginTop:'-80px'}}>
+        <div className="container-fluid about py-5" id='propos'>
             <div className="container py-5">
                 <div className="row g-7 align-items-center" >
                     <div className="col-xl-7 wow fadeInLeft" data-wow-delay="0.2s">
@@ -231,46 +268,46 @@ export default function Home() {
                     </div>
                     <div className="col-xl-5 wow fadeInRight" data-wow-delay="0.2s">
                         <div className="rounded position-relative overflow-hidden">
-                            <img src="img/about.png" className="img-fluid rounded w-100" alt=""/>
+                            <img src="img/about.png" alt="" className='img-fluid'/>
                         </div>
                     </div>
                 </div>
             </div>
             {/* <!-- Team Start --> */}
-            <div className="container-fluid team" id="equipe">
-    <div className="container">
-        <div className="row  d-flex justify-content-center" style={{gap:'30px'}}>
-            <div className="col-md-4 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
+            <div className="container-fluid service pb-5" id="equipe">
+    <div className="container pb-5">
+        <div className="row g-4">
+            <div className="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
                 <div className="card">
                     <img src="img/oscar.jpg" alt="Job Visa" className="card-image" />
                     <div className="card-text">Oscar Denou</div>
                 </div>
             </div>
-            <div className="col-md-4 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.4s">
+            <div className="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
                 <div className="card">
                     <img src="img/ndiaye.jpg" alt="Job Visa" className="card-image" />
-                    <div className="card-text">Aboubacar N'diaye</div>
+                    <div className="card-text">Abdrahamane N'diaye</div>
                 </div>
             </div>
-            <div className="col-md-4 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.6s">
+            <div className="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
                 <div className="card">
                     <img src="img/younouss.jpg" alt="Job Visa" className="card-image" />
                     <div className="card-text">Younouss Bore</div>
                 </div>
             </div>
-            <div className="col-md-4 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.8s">
+            <div className="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.8s">
                 <div className="card">
                     <img src="img/bane.jpg" alt="Job Visa" className="card-image" />
                     <div className="card-text">Moussa Bane</div>
                 </div>
             </div>
-            <div className="col-md-4 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="1s">
+            <div className="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="1s">
                 <div className="card">
                     <img src="img/zeinab.jpg" alt="Job Visa" className="card-image" />
                     <div className="card-text">Zeynab Djenepo</div>
                 </div>
             </div>
-            <div className="col-md-4 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="1.2s">
+            <div className="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="1.2s">
                 <div className="card">
                     <img src="img/mina.jpg" alt="Job Visa" className="card-image" />
                     <div className="card-text">Aminata Kone</div>
@@ -278,7 +315,7 @@ export default function Home() {
             </div>
         </div>
     </div>
-</div>
+             </div>
 
         {/* <!-- Team End --> */}
         </div>
@@ -291,7 +328,7 @@ export default function Home() {
 
 
         {/* <!-- Services Start --> */}
-        <div className="container-fluid service pb-5" id='service'>
+        <div className="container-fluid service pb-5" id='service' style={{marginTop:'-80px'}}>
             <div className="container pb-5">
                 <div className="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style={{maxWidth: '800px'}}>
                     <h1 className="display-5 text-orange">Nos Services</h1>
@@ -400,82 +437,80 @@ export default function Home() {
 
 
         {/* <!-- formation Start --> */}
-        <div class="container-fluid service overflow-hidden pt-5" style={{marginTop:'-80px'}}>
-            <div class="container py-5">
-                <div class="section-title text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div className="container-fluid service overflow-hidden pt-5" style={{marginTop:'-80px'}} id='formation'>
+            <div className="container py-5">
+                <div className="section-title text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
                    
-                    <h1 class="mb-0 text-orange">Formations</h1>
-                    <p class="mb-0">Le cabinet CFES propose des formations en </p>
+                    <h1 className="mb-0 text-orange">Formations</h1>
+                    <p className="mb-0">Le cabinet CFES propose des formations en </p>
                 </div>
-                <div class="row g-4">
-                    <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="service-item">
-                            <div class="service-inner">
-                                <div class="service-img">
-                                    <img src="img/offer-1.jpg" class="img-fluid w-100 rounded" alt="Image"/>
+                <div className="row g-4">
+                    <div className="col-lg-8 col-xl-4 wow fadeInUp" data-wow-delay="0.1s">
+                        <div className="service-item">
+                            <div className="service-inner">
+                                <div className="service-img">
+                                    <img src="img/offer-1.jpg" className="img-flui w-150 rounded" alt="Image"/>
                                 </div>
-                                <div class="service-title">
-                                    <div class="service-title-name">
-                                        <div class="bg-primary text-center rounded p-3 mx-5 mb-4">
-                                            <a href="#" class="h4 text-white mb-0">Statistique</a>
+                                <div className="service-title">
+                                    <div className="service-title-name">
+                                        <div className="bg-primary text-center rounded p-3 mx-5 mb-4">
+                                            <a href="#" className="h4 text-white mb-0">Statistique</a>
                                         </div>
-                                        <a class="btn bg-light text-secondary rounded-pill py-3 px-5 mb-4" href="#">Explore More</a>
-
+                                      
                                     </div>
-                                    <div class="service-content pb-4">
-                                        <div class="px-4">
-                                            <p class="mb-4">Cette formation couvre les bases et techniques avancées de la statistique descriptive et multidimensionnelle, ainsi que les méthodes d'échantillonnage et l'économétrie. Elle est idéale pour les personnes souhaitant bénéficier des compétences analytiques solides, indispensables dans de nombreux domaines professionnels.</p>
-                                            {/* <a class="btn btn-primary border-secondary rounded-pill py-3 px-5" href="#">Explore More</a> */}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="service-item">
-                            <div class="service-inner">
-                                <div class="service-img">
-                                    <img src="img/offer-2.jpg" class="img-fluid w-100 rounded" alt="Image"/>
-                                </div>
-                                <div class="service-title">
-                                    <div class="service-title-name">
-                                        <div class="bg-primary text-center rounded p-3 mx-5 mb-4">
-                                            <a href="#" class="h4 text-white mb-0">Logiciels de conception des outils de collecte</a>
-                                        </div>
-                                        <a class="btn bg-light text-secondary rounded-pill py-3 px-5 mb-4" href="#">Explore More</a>
-
-                                    </div>
-                                    <div class="service-content pb-4">
-                                        {/* <a href="#"><h4 class="text-white mb-4 py-3">Business Visa</h4></a> */}
-                                        <div class="px-4">
-                                            <p class="mb-4">Cette formation est centrale sur l'utilisation des outils comme Kobocollect , CSPro , et la programmation avec xlsform . Ces logiciels permettent de concevoir des formulaires numériques pour la collecte de données sur le terrain, une compétence essentielle pour les études de marché et la recherche.</p>
-                                            {/* <a class="btn btn-primary border-secondary rounded-pill text-white py-3 px-5" href="#">Explore More</a> */}
+                                    <div className="service-content pb-4">
+                                        <div className="px-4">
+                                           
+                                            <p className="mb-4">Cette formation couvre les bases et techniques avancées de la statistique descriptive et multidimensionnelle, ainsi que les méthodes d'échantillonnage et l'économétrie. Elle est idéale pour les personnes souhaitant bénéficier des compétences analytiques solides, indispensables dans de nombreux domaines professionnels.</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
-                    <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="service-item">
-                            <div class="service-inner">
-                                <div class="service-img">
-                                    <img src="img/analyse.jpeg" class="img-fluid w-100 rounded" alt="Image"/>
+                    <div className="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.3s">
+                        <div className="service-item">
+                            <div className="service-inner">
+                                <div className="service-img">
+                                    <img src="img/offer-2.jpg" className="img-flui w-100 rounded" alt="Image"/>
                                 </div>
-                                <div class="service-title">
-                                    <div class="service-title-name">
-                                        <div class="bg-primary text-center rounded p-3 mx-5 mb-4">
-                                            <a href="#" class="h4 text-white mb-0">Logiciels d'analyse statistique</a>
+                                <div className="service-title">
+                                    <div className="service-title-name">
+                                        <div className="bg-primary text-center rounded p-3 mx-5 mb-4">
+                                            <a href="#" className="h4 text-white mb-0" style={{fontSize:'14px'}}>Logiciels de conception des outils de collecte</a>
                                         </div>
-                                        <a class="btn bg-light text-secondary rounded-pill py-3 px-5 mb-4" href="#">Explore More</a>
+
                                     </div>
-                                    <div class="service-content pb-4">
-                                        {/* <a href="#"><h4 class="text-white mb-4 py-3">Diplometic Visa</h4></a> */}
-                                        <div class="px-4">
-                                            <p class="mb-4">Apprenez à maîtriser des outils comme R , STATA , et SPSS , qui sont parmi les plus utilisés pour l'analyse des données statistiques. Ces compétences sont cruciales pour interpréter des données complexes dans différents contextes (recherche, entreprise, etc.)..</p>
+                                    <div className="service-content pb-4">
+                                        {/* <a href="#"><h4 className="text-white mb-4 py-3">Business Visa</h4></a> */}
+                                        <div className="px-4">
+                                            <p className="mb-4">Cette formation est centrale sur l'utilisation des outils comme Kobocollect , CSPro , et la programmation avec xlsform . Ces logiciels permettent de concevoir des formulaires numériques pour la collecte de données sur le terrain, une compétence essentielle pour les études de marché et la recherche.</p>
+                                            {/* <a className="btn btn-primary border-secondary rounded-pill text-white py-3 px-5" href="#">Explore More</a> */}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div className="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.5s">
+                        <div className="service-item">
+                            <div className="service-inner">
+                                <div className="service-img">
+                                    <img src="img/analyse.jpeg" className="img-flui w-100 rounded" alt="Image"/>
+                                </div>
+                                <div className="service-title">
+                                    <div className="service-title-name">
+                                        <div className="bg-primary text-center rounded p-3 mx-5 mb-4">
+                                            <a href="#" className="h4 text-white mb-0" >Logiciels d'analyse statistique</a>
+                                        </div>
+                                      
+                                    </div>
+                                    <div className="service-content pb-4">
+                                        {/* <a href="#"><h4 className="text-white mb-4 py-3">Diplometic Visa</h4></a> */}
+                                        <div className="px-4">
+                                            <p className="mb-4">Apprenez à maîtriser des outils comme R , STATA , et SPSS , qui sont parmi les plus utilisés pour l'analyse des données statistiques. Ces compétences sont cruciales pour interpréter des données complexes dans différents contextes (recherche, entreprise, etc.)..</p>
                                         </div>
                                     </div>
                                 </div>
@@ -484,74 +519,74 @@ export default function Home() {
                     </div>
 
                     
-                    <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="service-item">
-                            <div class="service-inner">
-                                <div class="service-img">
-                                    <img src="img/offer-3.jpg" class="img-fluid w-100 rounded" alt="Image"/>
+                    <div className="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.1s">
+                        <div className="service-item">
+                            <div className="service-inner">
+                                <div className="service-img">
+                                    <img src="img/offer-3.jpg" className="img-flui w-100 rounded" alt="Image"/>
                                 </div>
-                                <div class="service-title">
-                                    <div class="service-title-name">
-                                        <div class="bg-primary text-center rounded p-3 mx-5 mb-4">
-                                            <a href="#" class="h4 text-white mb-0">Visualisation des donnee</a>
+                                <div className="service-title">
+                                    <div className="service-title-name">
+                                        <div className="bg-primary text-center rounded p-3 mx-5 mb-4">
+                                            <a href="#" className="h4 text-white mb-0">Visualisation des donnee</a>
                                         </div>
-                                        <a class="btn bg-light text-secondary rounded-pill py-3 px-5 mb-4" href="#">Explore More</a>
 
                                     </div>
-                                    <div class="service-content pb-4">
-                                        {/* <a href="#"><h4 class="text-white mb-4 py-3">Students Visa</h4></a> */}
-                                        <div class="px-4">
-                                            <p class="mb-4">La visualisation des données devient de plus en plus importante pour la communication des résultats d'analyse. Dans cette formation, vous apprendrez à utiliser des logiciels comme Tableau et Power BI pour créer des rapports et des tableaux de bord interactifs et compréhensibles.</p>
-                                            {/* <a class="btn btn-primary border-secondary rounded-pill text-white py-3 px-5" href="#">Explore More</a> */}
+                                    <div className="service-content pb-4">
+                                        {/* <a href="#"><h4 className="text-white mb-4 py-3">Students Visa</h4></a> */}
+                                        <div className="px-4">
+                                            <p className="mb-4">La visualisation des données devient de plus en plus importante pour la communication des résultats d'analyse. Dans cette formation, vous apprendrez à utiliser des logiciels comme Tableau et Power BI pour créer des rapports et des tableaux de bord interactifs et compréhensibles.</p>
+                                            {/* <a className="btn btn-primary border-secondary rounded-pill text-white py-3 px-5" href="#">Explore More</a> */}
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="service-item">
-                            <div class="service-inner">
-                                <div class="service-img">
-                                    <img src="img/db.jpeg" class="img-fluid w-100 rounded" alt="Image"/>
+                    <div className="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.3s">
+                        <div className="service-item">
+                            <div className="service-inner">
+                                <div className="service-img">
+                                    <img src="img/db.jpeg" className="img-flui w-100 rounded" alt="Image"/>
                                 </div>
-                                <div class="service-title">
-                                    <div class="service-title-name">
-                                        <div class="bg-primary text-center rounded p-3 mx-5 mb-4">
-                                            <a href="#" class="h4 text-white mb-0">Bases de données</a>
+                                <div className="service-title">
+                                    <div className="service-title-name">
+                                        <div className="bg-primary text-center rounded p-3 mx-5 mb-4">
+                                            <a href="#" className="h4 text-white mb-0">Bases de données</a>
                                         </div>
-                                        <a class="btn bg-light text-secondary rounded-pill py-3 px-5 mb-4" href="#">Explore More</a>
+                                   
+                                
                                     </div>
-                                    <div class="service-content pb-4">
-                                        <div class="px-4">
-                                            <p class="mb-4">Une formation essentielle pour ceux qui souhaitent gérer des bases de données de manière efficace. Vous apprendrez à utiliser des outils comme ACCESS , VBA , et à maîtriser des langages de gestion de bases de données comme SQL et MySQL , vous permettant ainsi de créer et gérer des systèmes de stockage de données.</p>
-                                            {/* <a class="btn btn-primary border-secondary rounded-pill text-white py-3 px-5" href="#">Explore More</a> */}
+                                    <div className="service-content pb-4">
+                                        <div className="px-4">
+                                            <p className="mb-4">Une formation essentielle pour ceux qui souhaitent gérer des bases de données de manière efficace. Vous apprendrez à utiliser des outils comme ACCESS , VBA , et à maîtriser des langages de gestion de bases de données comme SQL et MySQL , vous permettant ainsi de créer et gérer des systèmes de stockage de données.</p>
+                                            {/* <a className="btn btn-primary border-secondary rounded-pill text-white py-3 px-5" href="#">Explore More</a> */}
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="service-item">
-                            <div class="service-inner">
-                                <div class="service-img">
-                                    <img src="img/offer-5.jpeg" class="img-fluid w-100 rounded" alt="Image"/>
+                    <div className="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.5s">
+                        <div className="service-item">
+                            <div className="service-inner">
+                                <div className="service-img">
+                                    <img src="img/offer-5.jpeg" className="img-flui w-100 rounded" alt="Image"/>
                                 </div>
                                 
-                                <div class="service-title">
-                                    <div class="service-title-name">
-                                        <div class="bg-primary text-center rounded p-3 mx-5 mb-4">
-                                            <a href="#" class="h4 text-white mb-0">La suite Microsoft</a>
+                                <div className="service-title">
+                                    <div className="service-title-name">
+                                        <div className="bg-primary text-center rounded p-3 mx-5 mb-4">
+                                            <a href="#" className="h4 text-white mb-0">La suite Microsoft</a>
                                         </div>
+                                  
                                     </div>
-                                    <a class="btn bg-light text-secondary rounded-pill py-3 px-5 mb-4" href="#">Explore More</a>
-
-                                    <div class="service-content pb-4">
-                                        {/* <a href="#"><h4 class="text-white mb-4 py-3">La suite Microsoft</h4></a> */}
-                                        <div class="px-4">
-                                            <p class="mb-4">Familiarisez-vous avec les outils de la suite Microsoft Office (Word, Excel, PowerPoint) pour une utilisation efficace dans un contexte professionnel. Ce module vous aidera à améliorer votre productivité et à maîtriser des fonctions avancées, notamment pour les présentations et la gestion de données.</p>
-                                            {/* <a class="btn btn-primary border-secondary rounded-pill text-white py-3 px-5" href="#">Explore More</a> */}
+                                   
+                                    <div className="service-content pb-4">
+                                        {/* <a href="#"><h4 className="text-white mb-4 py-3">La suite Microsoft</h4></a> */}
+                                        <div className="px-4">
+                                            <p className="mb-4">Familiarisez-vous avec les outils de la suite Microsoft Office (Word, Excel, PowerPoint) pour une utilisation efficace dans un contexte professionnel. Ce module vous aidera à améliorer votre productivité et à maîtriser des fonctions avancées, notamment pour les présentations et la gestion de données.</p>
+                                            {/* <a className="btn btn-primary border-secondary rounded-pill text-white py-3 px-5" href="#">Explore More</a> */}
                                         </div>
                                     </div>
                                 </div>
@@ -774,80 +809,28 @@ Sécrétaire -Permanent ONG AMRAD
                 <div className="row g-5">
                     <div className="col-xl-6">
                         <div className="wow fadeInUp" data-wow-delay="0.2s">
-                            <div className="bg-ligh rounded p-5 mb-5">
-                                <div className="row g-4">
-                                    <div className="col-md-6">
-                                        <div className="contact-add-item">
-                                            <div className="contact-icon text-primar mb-4">
-                                                <i className="fas fa-map-marker-alt fa-2x"></i>
-                                            </div>
-                                            <div>
-                                                <h4>Address</h4>
-                                                <p className="mb-0">123 Street New York.USA</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <div className="contact-add-item">
-                                            <div className="contact-icon text-primar mb-4">
-                                                <i className="fas fa-envelope fa-2x"></i>
-                                            </div>
-                                            <div>
-                                                <h4>Mail Us</h4>
-                                                <p className="mb-0">info@example.com</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <div className="contact-add-item">
-                                            <div className="contact-icon text-primar mb-4">
-                                                <i className="fa fa-phone-alt fa-2x"></i>
-                                            </div>
-                                            <div>
-                                                <h4>Telephone</h4>
-                                                <p className="mb-0">(+012) 3456 7890</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <div className="contact-add-item">
-                                            <div className="contact-icon text-primar mb-4">
-                                                <i className="fab fa-firefox-browser fa-2x"></i>
-                                            </div>
-                                            <div>
-                                                <h4>Yoursite@ex.com</h4>
-                                                <p className="mb-0">(+012) 3456 7890</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            
                             <div className="bg-ligh p-5 rounded h-100 wow fadeInUp" data-wow-delay="0.2s">
                                
-                                <form>
+                                <form onSubmit={handleSubmit}>
                                     <div className="row g-4">
                                         <div className="col-lg-12 col-xl-6">
                                             <div className="form-floating">
-                                                <input type="text" className="form-control border-0" id="name" placeholder="Your Name"/>
-                                                <label for="name">Prenom et Nom</label>
+                                                <input type="text"  value={formData.name} className="form-control border-0" id="name" placeholder="Your Name"/>
+                                                <label for="name">Nom</label>
                                             </div>
                                         </div>
                                         <div className="col-lg-12 col-xl-6">
                                             <div className="form-floating">
-                                                <input type="email" className="form-control border-0" id="email" placeholder="Your Email"/>
+                                                <input type="email"  value={formData.email} className="form-control border-0" id="email" placeholder="Your Email"/>
                                                 <label for="email">Mail</label>
                                             </div>
                                         </div>
-                                        <div className="col-lg-12 col-xl-6">
-                                            <div className="form-floating">
-                                                <input type="phone" className="form-control border-0" id="phone" placeholder="Phone"/>
-                                                <label for="phone">Telephone</label>
-                                            </div>
-                                        </div>
+                                      
                                        
                                         <div className="col-12">
                                             <div className="form-floating">
-                                                <textarea className="form-control border-0" placeholder="Leave a message here" id="message" style={{height: '160px'}}></textarea>
+                                                <textarea className="form-control border-0"  value={formData.message} placeholder="Leave a message here" id="message" style={{height: '160px'}}></textarea>
                                                 <label for="message">Message</label>
                                             </div>
 
@@ -861,19 +844,27 @@ Sécrétaire -Permanent ONG AMRAD
                         </div>
                     </div>
                     <div className="col-xl-6 wow fadeInRight" data-wow-delay="0.2s">
-                        <div className="rounded h-100">
-                            <iframe className="rounded h-100 w-100" 
-                            style={{height: '400px'}} src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387191.33750346623!2d-73.97968099999999!3d40.6974881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1694259649153!5m2!1sen!2sbd" 
-                            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        </div>
-                    </div>
+  <div className="rounded h-100" style={{ maxWidth: '100%' }}>
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3893.7528927120115!2d-8.027122424929836!3d12.598530787683574!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTLCsDM1JzU0LjciTiA4wrAwMScyOC40Ilc!5e0!3m2!1sfr!2sml!4v1731402727309!5m2!1sfr!2sml" 
+      width="100%" 
+      height="400" 
+      style={{ border: '0', maxWidth: '100%' }} 
+      allowFullScreen="" 
+      loading="lazy" 
+      referrerPolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</div>
+
+                    
                 </div>
             </div>
         </div>
         {/* <!-- Contact End --> */}
 
         {/* <!-- Footer Start --> */}
-        <footer class="container-fluid footer_section">
+        <footer className="container-fluid footer_section">
     <p>
       &copy; <span id="currentYear"></span> All Rights Reserved. Design by
       <a href="https://html.design/"> AIS-Mali</a>
@@ -886,5 +877,10 @@ Sécrétaire -Permanent ONG AMRAD
         {/* <!-- Back to Top --> */}
 
     </div>
+        )
+    }
+    
+    </>
+   
   )
 }
